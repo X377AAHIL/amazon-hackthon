@@ -1,0 +1,28 @@
+# Python caches and build artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Environment variables
+.env
+
+# Local databases and uploads
+backend/returns.db
+backend/uploads/
+
+# OS files
+.DS_Store
+Thumbs.db

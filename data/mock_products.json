@@ -1,0 +1,35 @@
+[
+  {
+    "product_name": "Apple AirPods Pro (2nd Generation)",
+    "category": "Electronics",
+    "grade": "Grade A (Like New)",
+    "confidence_score": 0.98,
+    "is_fraud_suspected": false,
+    "grading_justification": "Original packaging is unsealed, but headphones and charging case are free of blemishes and all silicone tips are present.",
+    "recommended_route": "Amazon Renewed",
+    "estimated_value_recovery_percentage": 85,
+    "routing_reasoning": "High resale velocity item in near-perfect condition. Refurbishing unlocks maximum value recovery over liquidation."
+  },
+  {
+    "product_name": "Sony WH-1000XM5 Wireless Headphones",
+    "category": "Electronics",
+    "grade": "Grade D (Scrap/Recycle)",
+    "confidence_score": 0.94,
+    "is_fraud_suspected": true,
+    "grading_justification": "The box returned contained a cheap, knock-off generic brand wired headphone instead of the genuine Sony item.",
+    "recommended_route": "Recycle",
+    "estimated_value_recovery_percentage": 0,
+    "routing_reasoning": "Flagged as an invalid return / return fraud swap. Prevented auto-refund, saving $399 loss. Item sent to physical evidence/recycle hold."
+  },
+  {
+    "product_name": "Patagonia Men's Torrentshell Jacket",
+    "category": "Apparel",
+    "grade": "Grade B (Light Use)",
+    "confidence_score": 0.91,
+    "is_fraud_suspected": false,
+    "grading_justification": "Tags are detached and faint dust mark noted on the left sleeve cuff, fabric integrity is completely intact.",
+    "recommended_route": "Amazon Warehouse",
+    "estimated_value_recovery_percentage": 65,
+    "routing_reasoning": "Perfect fit for an Amazon Warehouse open-box listing. Item requires minimal wipe-down prep before restocking."
+  }
+]
