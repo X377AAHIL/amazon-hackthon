@@ -1,0 +1,1 @@
+// Product row component for Intelligent Bridge.
