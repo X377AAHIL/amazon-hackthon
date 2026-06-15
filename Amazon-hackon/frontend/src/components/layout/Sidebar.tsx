@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
 	LayoutDashboard, ScanLine, Route, AlertTriangle,
-	ShoppingCart, IdCard, Settings, FileBarChart
+	ShoppingCart, IdCard
 } from 'lucide-react'
 
 const MENU_ITEMS = [
@@ -14,11 +14,6 @@ const MENU_ITEMS = [
 	{ label: 'Fraud Detection', href: '/fraud', icon: AlertTriangle },
 	{ label: 'Marketplace', href: '/marketplace', icon: ShoppingCart },
 	{ label: 'Lifecycle Card', href: '/lifecycle', icon: IdCard },
-]
-
-const SYSTEM_ITEMS = [
-	{ label: 'Settings', href: '#', icon: Settings },
-	{ label: 'Reports', href: '#', icon: FileBarChart },
 ]
 
 export default function Sidebar() {
@@ -58,38 +53,6 @@ export default function Sidebar() {
 							background: isActive ? 'rgba(255,153,0,0.08)' : 'transparent',
 							borderLeft: isActive ? '3px solid #FF9900' : '3px solid transparent',
 							textDecoration: 'none',
-							transition: 'all 0.15s',
-						}}
-					>
-						<Icon size={15} />
-						{item.label}
-					</Link>
-				)
-			})}
-
-			<p style={{
-				fontSize: '10px', fontWeight: 600, color: '#8d9db6',
-				letterSpacing: '0.08em', textTransform: 'uppercase',
-				padding: '16px 16px 6px', marginTop: '8px'
-			}}>
-				System
-			</p>
-
-			{SYSTEM_ITEMS.map((item) => {
-				const Icon = item.icon
-				return (
-					<Link
-						key={item.label}
-						href={item.href}
-						style={{
-							display: 'flex',
-							alignItems: 'center',
-							gap: '10px',
-							padding: '9px 16px',
-							fontSize: '13px',
-							color: '#8d9db6',
-							textDecoration: 'none',
-							borderLeft: '3px solid transparent',
 							transition: 'all 0.15s',
 						}}
 					>
