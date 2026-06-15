@@ -227,7 +227,7 @@ export default function InspectionPage() {
 									className="btn-primary"
 									style={{ width: '100%', justifyContent: 'center' }}
 									onClick={handleAnalyze}
-									disabled={!backendOnline}
+									disabled={false}
 								>
 									<Cpu size={15} />
 									Run Live Grading
