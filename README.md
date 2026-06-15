@@ -1,5 +1,9 @@
 # Intelligent Bridge
 
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://frontend-pi-ten-86.vercel.app)
+
+🔗 **Live Demo:** [https://frontend-pi-ten-86.vercel.app](https://frontend-pi-ten-86.vercel.app)
+
 Intelligent Bridge is an AI-powered return inspection and routing dashboard.
 
 It includes:
