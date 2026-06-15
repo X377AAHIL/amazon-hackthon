@@ -128,9 +128,7 @@ export default function InspectionPage() {
 			</div>
 
 			{/* Stats bar */}
-			<div style={{
-				display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', marginBottom: '20px'
-			}}>
+			<div className="grid-4-cols" style={{ marginBottom: '20px' }}>
 				{[
 					{ label: 'Processed', value: `${totalProcessed}`, icon: '📦' },
 					{ label: 'Fraud Flags', value: `${fraudCount}`, icon: '🚨' },
@@ -152,7 +150,7 @@ export default function InspectionPage() {
 			</div>
 
 			{/* Main grid */}
-			<div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '16px', marginBottom: '20px' }}>
+			<div className="grid-2-cols-uneven" style={{ marginBottom: '20px' }}>
 				{/* Left — Intake */}
 				<div className="amz-card">
 					<p style={{ fontSize: '13px', fontWeight: 600, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '12px' }}>

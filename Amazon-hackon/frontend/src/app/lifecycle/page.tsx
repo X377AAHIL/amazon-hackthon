@@ -26,7 +26,7 @@ export default function LifecyclePage() {
 				</p>
 			</div>
 
-			<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+			<div className="grid-2-cols">
 				<div className="amz-card">
 					<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
 						<div>

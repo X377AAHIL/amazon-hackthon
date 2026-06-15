@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
 	LayoutDashboard, ScanLine, Route, AlertTriangle,
-	ShoppingCart, IdCard
+	ShoppingCart, IdCard, X
 } from 'lucide-react'
 
 const MENU_ITEMS = [
@@ -16,18 +16,11 @@ const MENU_ITEMS = [
 	{ label: 'Lifecycle Card', href: '/lifecycle', icon: IdCard },
 ]
 
-export default function Sidebar() {
+function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
 	const pathname = usePathname()
 
 	return (
-		<aside style={{
-			width: '200px',
-			background: '#232F3E',
-			borderRight: '1px solid #2d3547',
-			padding: '16px 0',
-			flexShrink: 0,
-			minHeight: '100vh',
-		}}>
+		<>
 			<p style={{
 				fontSize: '10px', fontWeight: 600, color: '#8d9db6',
 				letterSpacing: '0.08em', textTransform: 'uppercase',
@@ -43,6 +36,7 @@ export default function Sidebar() {
 					<Link
 						key={item.href}
 						href={item.href}
+						onClick={onNavigate}
 						style={{
 							display: 'flex',
 							alignItems: 'center',
@@ -61,6 +55,57 @@ export default function Sidebar() {
 					</Link>
 				)
 			})}
+		</>
+	)
+}
+
+/* Desktop Sidebar — always visible on larger screens */
+export function DesktopSidebar() {
+	return (
+		<aside className="sidebar-desktop">
+			<NavLinks />
 		</aside>
 	)
+}
+
+/* Mobile Sidebar Drawer — slides in from right */
+export function MobileSidebar({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+	if (!isOpen) return null
+
+	return (
+		<>
+			{/* Overlay backdrop */}
+			<div className="sidebar-overlay open" onClick={onClose} />
+
+			{/* Drawer */}
+			<div className="sidebar-mobile-drawer">
+				{/* Close button */}
+				<div style={{
+					display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+					padding: '0 16px 12px', borderBottom: '1px solid #2d3547', marginBottom: '12px'
+				}}>
+					<span style={{ fontWeight: 700, fontSize: '14px', color: '#FF9900' }}>
+						Menu
+					</span>
+					<button
+						onClick={onClose}
+						style={{
+							background: 'none', border: 'none', color: '#8d9db6',
+							cursor: 'pointer', padding: '4px', borderRadius: '4px'
+						}}
+						aria-label="Close menu"
+					>
+						<X size={20} />
+					</button>
+				</div>
+
+				<NavLinks onNavigate={onClose} />
+			</div>
+		</>
+	)
+}
+
+/* Default export for backward compat — renders desktop only */
+export default function Sidebar() {
+	return <DesktopSidebar />
 }

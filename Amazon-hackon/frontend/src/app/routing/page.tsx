@@ -124,7 +124,7 @@ export default function RoutingPage() {
 	return (
 		<div className="fade-in" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
 			{/* Header */}
-			<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+			<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '8px' }}>
 				<div>
 					<h1 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--text)' }}>
 						Smart Routing Center
@@ -138,7 +138,7 @@ export default function RoutingPage() {
 				</div>
 			</div>
 
-			<div style={{ display: 'grid', gridTemplateColumns: '260px 1fr 1fr', gap: '16px', alignItems: 'start', flex: 1, minHeight: 0 }}>
+			<div className="grid-routing" style={{ flex: 1, minHeight: 0 }}>
 				
 				{/* Column 1: Queue Sidebar */}
 				<div className="amz-card" style={{ height: '100%', overflowY: 'auto', padding: '16px 12px' }}>

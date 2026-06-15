@@ -69,7 +69,7 @@ export default function MarketplacePage() {
 			{/* Fixed Header & Search Bar */}
 			<div style={{ flexShrink: 0, marginBottom: '16px' }}>
 				{/* Title row */}
-				<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+				<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
 					<div>
 						<h1 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--text)' }}>
 							Marketplace
@@ -78,7 +78,7 @@ export default function MarketplacePage() {
 							Browse returned products available for purchase — Grade B or below
 						</p>
 					</div>
-					<div style={{ display: 'flex', gap: '6px' }}>
+					<div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
 						{/* Stats chips */}
 						{Object.entries(gradeCount).map(([grade, count]) => (
 							<span key={grade} style={{
@@ -94,7 +94,7 @@ export default function MarketplacePage() {
 				</div>
 
 				{/* Search + View Toggle */}
-				<div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+				<div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
 					<div style={{ flex: 1, position: 'relative' }}>
 						<Search size={15} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--muted)' }} />
 						<input
@@ -215,12 +215,11 @@ function ListCard({ product, isHovered, onMouseEnter, onMouseLeave }: {
 }) {
 	return (
 		<div
-			className="amz-card"
 			onMouseEnter={onMouseEnter}
 			onMouseLeave={onMouseLeave}
+			className="amz-card grid-list-card"
 			style={{
 				display: 'grid',
-				gridTemplateColumns: '60px 1fr auto',
 				gap: '16px',
 				alignItems: 'center',
 				transition: 'all 0.2s ease',

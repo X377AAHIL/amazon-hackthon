@@ -17,7 +17,7 @@ export default function FraudPage() {
 				</p>
 			</div>
 
-			<div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '20px' }}>
+			<div className="grid-3-cols" style={{ marginBottom: '20px' }}>
 				<StatCard label="Fraud Cases Today" value="14" icon={AlertTriangle} change="+2 vs yesterday" positive={false} />
 				<StatCard label="Attempted Loss" value="₹3.2L" icon={IndianRupee} change="+0.8L vs yesterday" positive={false} />
 				<StatCard label="Fraud Rate" value="1.09%" icon={PieChart} change="+0.2% vs yesterday" positive={false} />
@@ -59,7 +59,7 @@ export default function FraudPage() {
 						<span className="badge badge-fraud">{fraudCase.status}</span>
 					</div>
 
-					<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', margin: '16px 0' }}>
+					<div className="grid-2-cols" style={{ margin: '16px 0' }}>
 						<div style={{ background: 'var(--surface2)', border: '1px solid var(--border)', borderRadius: '10px', padding: '16px', textAlign: 'center' }}>
 							<div style={{ width: '80px', height: '80px', margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', background: 'var(--surface)', fontSize: '36px' }}>
 								{fraudCase.originalEmoji}
@@ -89,7 +89,7 @@ export default function FraudPage() {
 						</div>
 					</div>
 
-					<div style={{ display: 'flex', gap: '8px', marginTop: '14px' }}>
+					<div style={{ display: 'flex', gap: '8px', marginTop: '14px', flexWrap: 'wrap' }}>
 						<button
 							className="btn-primary"
 							style={{ flex: 1, justifyContent: 'center', background: '#ff4444', color: '#fff' }}

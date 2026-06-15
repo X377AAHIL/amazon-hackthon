@@ -67,6 +67,16 @@ body {
   to { opacity: 1; transform: translateX(0); }
 }
 
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideOutRight {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(100%); }
+}
+
 .fade-in {
   animation: fadeIn 0.25s ease forwards;
 }
@@ -188,3 +198,152 @@ body {
 .tag-donate { background: rgba(160,132,252,0.15); color: #a084fc; }
 .tag-recycle { background: rgba(126,200,126,0.15); color: #7ec87e; }
 .tag-flagged { background: rgba(255,68,68,0.2); color: #ff6666; }
+
+/* ===== RESPONSIVE LAYOUT SYSTEM ===== */
+
+/* Desktop sidebar */
+.sidebar-desktop {
+  width: 200px;
+  background: #232F3E;
+  border-right: 1px solid #2d3547;
+  padding: 16px 0;
+  flex-shrink: 0;
+  min-height: 100vh;
+}
+
+/* Mobile sidebar overlay */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 200;
+  backdrop-filter: blur(2px);
+}
+
+.sidebar-overlay.open {
+  display: block;
+}
+
+.sidebar-mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 260px;
+  height: 100%;
+  background: #232F3E;
+  border-left: 1px solid #2d3547;
+  padding: 16px 0;
+  z-index: 201;
+  overflow-y: auto;
+  animation: slideInRight 0.25s ease forwards;
+}
+
+/* Hamburger button */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.hamburger-btn:hover {
+  background: var(--surface2);
+}
+
+/* Hide elements on mobile/desktop */
+.hide-on-mobile { display: initial; }
+.hide-on-desktop { display: none !important; }
+.topbar-subtitle { display: inline; }
+.topbar-nav-desktop { display: flex; }
+
+/* Main content wrapper */
+.main-content {
+  flex: 1;
+  padding: 24px;
+  background: #0f1111;
+  overflow-y: auto;
+  min-height: calc(100vh - 50px);
+}
+
+/* Responsive grid helpers (used by pages via className) */
+.grid-4-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.grid-3-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.grid-2-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-2-cols-uneven { display: grid; grid-template-columns: 1fr 1.2fr; gap: 16px; }
+.grid-routing { display: grid; grid-template-columns: 260px 1fr 1fr; gap: 16px; align-items: start; }
+.grid-list-card { display: grid; grid-template-columns: 60px 1fr auto; gap: 16px; align-items: center; }
+
+/* ===== MOBILE BREAKPOINT ===== */
+@media (max-width: 768px) {
+  /* Sidebar: hide desktop, enable mobile drawer */
+  .sidebar-desktop {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hide-on-mobile { display: none !important; }
+  .hide-on-desktop { display: initial !important; }
+  .topbar-subtitle { display: none !important; }
+  .topbar-nav-desktop { display: none !important; }
+
+  /* Main content less padding */
+  .main-content {
+    padding: 14px;
+    min-height: calc(100vh - 50px);
+  }
+
+  /* Grids collapse */
+  .grid-4-cols { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .grid-3-cols { grid-template-columns: 1fr; gap: 8px; }
+  .grid-2-cols { grid-template-columns: 1fr; gap: 12px; }
+  .grid-2-cols-uneven { grid-template-columns: 1fr; gap: 12px; }
+  .grid-routing { grid-template-columns: 1fr; gap: 12px; }
+  .grid-list-card { grid-template-columns: 48px 1fr; gap: 10px; }
+
+  /* Cards: slightly less padding */
+  .amz-card {
+    padding: 12px;
+  }
+
+  /* Table: smaller text */
+  .amz-table {
+    font-size: 12px;
+  }
+  .amz-table th {
+    padding: 8px 8px;
+    font-size: 10px;
+  }
+  .amz-table td {
+    padding: 8px 8px;
+  }
+
+  /* Buttons: smaller on mobile */
+  .btn-primary, .btn-ghost {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .grid-4-cols { grid-template-columns: 1fr 1fr; gap: 6px; }
+
+  .main-content {
+    padding: 10px;
+  }
+
+  .amz-card {
+    padding: 10px;
+    border-radius: 8px;
+  }
+}

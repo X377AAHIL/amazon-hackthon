@@ -36,7 +36,7 @@ export default function DashboardPage() {
 			</div>
 
 			{/* Stat Cards */}
-			<div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', marginBottom: '20px' }}>
+			<div className="grid-4-cols" style={{ marginBottom: '20px' }}>
 				<StatCard label="Total Returns Today" value="1,284" icon={RefreshCw} change="+8.2% vs yesterday" positive={false} />
 				<StatCard label="Products Recovered" value="892" icon={Package} change="+12.4% vs yesterday" positive={true} />
 				<StatCard label="Revenue Saved" value="₹45.2L" icon={BadgeDollarSign} change="+18.7% vs yesterday" positive={true} />
@@ -44,7 +44,7 @@ export default function DashboardPage() {
 			</div>
 
 			{/* Charts */}
-			<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
+			<div className="grid-2-cols" style={{ marginBottom: '20px' }}>
 				{/* Bar Chart */}
 				<div className="amz-card">
 					<p style={{ fontSize: '13px', fontWeight: 600, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '12px' }}>
@@ -106,7 +106,7 @@ export default function DashboardPage() {
 
 			{/* Returns Table */}
 			<div className="amz-card">
-				<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+				<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', flexWrap: 'wrap', gap: '8px' }}>
 					<p style={{ fontSize: '13px', fontWeight: 600, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
 						Recent Returns Queue
 					</p>
@@ -118,7 +118,7 @@ export default function DashboardPage() {
 							style={{
 								background: 'var(--surface2)', border: '1px solid var(--border)',
 								borderRadius: '7px', padding: '7px 12px', fontSize: '13px',
-								color: 'var(--text)', outline: 'none', width: '220px'
+								color: 'var(--text)', outline: 'none', width: '100%', maxWidth: '220px', minWidth: '140px'
 							}}
 						/>
 					</div>

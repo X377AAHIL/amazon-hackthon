@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { RefreshCw } from 'lucide-react'
+import { RefreshCw, Menu } from 'lucide-react'
 
 const NAV_ITEMS = [
 	{ label: 'Dashboard', href: '/dashboard' },
@@ -13,7 +13,7 @@ const NAV_ITEMS = [
 	{ label: 'Lifecycle Card', href: '/lifecycle' },
 ]
 
-export default function Topbar() {
+export default function Topbar({ onMenuToggle }: { onMenuToggle?: () => void }) {
 	const pathname = usePathname()
 
 	return (
@@ -30,18 +30,18 @@ export default function Topbar() {
 			zIndex: 100,
 		}}>
 			{/* Logo */}
-			<div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+			<div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
 				<RefreshCw size={18} color="#FF9900" />
 				<span style={{ fontWeight: 700, fontSize: '16px', color: '#FF9900', letterSpacing: '-0.5px' }}>
 					Intelligent Bridge
 				</span>
-				<span style={{ fontSize: '11px', color: '#8d9db6', marginLeft: '4px' }}>
+				<span className="topbar-subtitle" style={{ fontSize: '11px', color: '#8d9db6', marginLeft: '4px' }}>
 					by Coderaki · Amazon Hackathon 2026
 				</span>
 			</div>
 
-			{/* Nav tabs */}
-			<nav style={{ display: 'flex', gap: '2px', marginLeft: '24px', overflowX: 'auto' }}>
+			{/* Nav tabs — desktop only */}
+			<nav className="topbar-nav-desktop" style={{ gap: '2px', marginLeft: '24px', overflowX: 'auto' }}>
 				{NAV_ITEMS.map((item) => {
 					const isActive = pathname === item.href
 					return (
@@ -75,6 +75,15 @@ export default function Topbar() {
 				}} />
 				<span style={{ fontSize: '11px', color: '#8d9db6' }}>Live</span>
 			</div>
+
+			{/* Hamburger — mobile only */}
+			<button
+				className="hamburger-btn"
+				onClick={onMenuToggle}
+				aria-label="Toggle navigation menu"
+			>
+				<Menu size={22} />
+			</button>
 		</header>
 	)
 }
